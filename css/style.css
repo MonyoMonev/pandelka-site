@@ -782,7 +782,10 @@ section { padding: clamp(72px, 11vh, 128px) clamp(20px, 5vw, 64px); }
 .gscroll__btn--next { right: -12px; }
 
 .gallery__actions {
-  text-align: center;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 14px;
   margin-top: 38px;
 }
 
