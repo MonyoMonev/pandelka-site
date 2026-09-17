@@ -224,7 +224,7 @@ a { color: inherit; }
 
 .hero {
   position: relative;
-  height: 280vh;
+  height: 200vh;
 }
 
 .hero__stage {
@@ -267,8 +267,6 @@ a { color: inherit; }
 }
 
 .hero__word span { display: block; }
-
-.hero__word span:last-child { font-style: italic; }
 
 .hero__motto {
   position: absolute;
@@ -832,7 +830,6 @@ section { padding: clamp(72px, 11vh, 128px) clamp(20px, 5vw, 64px); }
 .flybow__side { opacity: var(--side, 0); transform: rotateY(60deg); }
 .flybow__side--b { transform: rotateY(120deg); }
 
-.flybow--white { width: 393px; height: 392px; transform-origin: 196px 196px; }
 
 /* ---------- Правни страници и 404 ---------- */
 

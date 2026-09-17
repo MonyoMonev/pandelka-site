@@ -151,9 +151,7 @@
   var heroFg = document.querySelector(".hero__fg");
   var heroHint = document.querySelector(".hero__scrollhint");
   var flybow = document.getElementById("flybow");
-  var flybow2 = document.getElementById("flybow2");
   var flybowSpin = flybow ? flybow.querySelector(".flybow__spin") : null;
-  var flybow2Spin = flybow2 ? flybow2.querySelector(".flybow__spin") : null;
   var fillword = document.getElementById("fillword");
   var fillword2 = document.getElementById("fillword2");
   var fillhead = document.getElementById("fillhead");
@@ -282,11 +280,10 @@
         // а червеното продължава чак до заглавието на моделите.
         var r1 = fillword.getBoundingClientRect();
         var fill1 = clamp01((vh * 0.62 - r1.top + 50) / (r1.height * 1.6));
-        var r2 = null, fill2 = 0, whiteP = 0, fill3 = 0, fillS = 0;
+        var r2 = null, fill2 = 0, fill3 = 0, fillS = 0;
         if (fillword2) {
           r2 = fillword2.getBoundingClientRect();
           fill2 = clamp01((vh * 0.62 - r2.top + 50) / (r2.height * 1.6));
-          whiteP = clamp01((vh * 0.42 - r2.top) / (vh * 0.45));
         }
         if (fillhead) {
           var r3 = fillhead.getBoundingClientRect();
@@ -312,27 +309,6 @@
           e.style.opacity = (0.12 + 0.88 * lp).toFixed(3);
           e.style.transform = "translateY(" + ((1 - lp) * 30).toFixed(1) + "%)";
           e.style.filter = lp >= 1 ? "none" : "blur(" + ((1 - lp) * 5).toFixed(2) + "px)";
-        }
-
-        // Бялата панделка: ражда се от "Панделка" и слиза към заглавието
-        if (flybow2 && r2 && rS) {
-          var uw = smooth(whiteP);
-          var absorbS = smooth(fillS / 0.3);
-          // таванът държи панделката видима по дългия път надолу
-          var y2 = Math.min(mix(r2.top + r2.height / 2, rS.top + rS.height / 2, uw), vh * 0.72) + my * 3;
-          var x2 = vw / 2 + mx * 5;
-          var w2 = Math.min(130, vw * 0.18) * (1 - 0.5 * absorbS);
-          var yDet2 = (r2.top + y) - vh * 0.42;
-          var yImp2 = (rS.top + y) - vh * 0.62;
-          var journey2 = clamp01(yImp2 > yDet2 ? (y - yDet2) / (yImp2 - yDet2) : 1);
-          var ry2 = journey2 * 360;
-          var s2 = w2 / 393;
-          flybow2.style.visibility = "visible";
-          flybow2.style.opacity = (clamp01(whiteP / 0.2) * (1 - absorbS)).toFixed(3);
-          flybow2.style.setProperty("--side", (Math.sin(Math.PI * journey2) * 0.85).toFixed(2));
-          flybow2.style.transform =
-            "translate3d(" + (x2 - 196) + "px," + (y2 - 196) + "px,0) scale(" + s2 + ")";
-          flybow2Spin.style.transform = "rotateY(" + ry2.toFixed(1) + "deg)";
         }
 
         // Сблъсъкът: панделката се всмуква в буквите
