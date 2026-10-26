@@ -24,22 +24,12 @@
 }
 
 .kol__eyebrow {
-  display: inline-flex;
-  align-items: center;
-  gap: 9px;
   text-transform: uppercase;
   letter-spacing: 0.22em;
   font-size: 0.78rem;
   font-weight: 600;
   color: var(--red);
   margin-bottom: 16px;
-}
-
-.kol__eyebrow::before {
-  content: "";
-  width: 26px;
-  height: 1px;
-  background: var(--red);
 }
 
 .kol h2 {
