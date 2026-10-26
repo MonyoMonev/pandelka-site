@@ -153,7 +153,7 @@
 
 /* на телефон оставяме по-малко снежинки, за да не товарят */
 @media (max-width: 700px) {
-  .snow i:nth-child(even) { display: none; }
+  .snow i:nth-child(3n) { display: none; }
 }
 
 @media (prefers-reduced-motion: reduce) {
