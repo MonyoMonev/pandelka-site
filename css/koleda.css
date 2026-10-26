@@ -119,3 +119,43 @@
   .kol__grid--2, .kol__grid--3 { grid-template-columns: 1fr 1fr; gap: 10px; }
   .kol__grid--3 figure:last-child { grid-column: span 2; }
 }
+
+/* ---------- Снежинки, дискретни и леки за браузъра ---------- */
+
+.snow {
+  position: fixed;
+  inset: 0;
+  z-index: 40;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.snow i {
+  position: absolute;
+  top: -14px;
+  display: block;
+  border-radius: 50%;
+  background: #fff;
+  opacity: 0;
+  filter: blur(0.4px);
+  animation-name: snezhinka;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  will-change: transform;
+}
+
+@keyframes snezhinka {
+  0%   { transform: translate3d(0, 0, 0); opacity: 0; }
+  12%  { opacity: var(--o); }
+  88%  { opacity: var(--o); }
+  100% { transform: translate3d(var(--dx), 104vh, 0); opacity: 0; }
+}
+
+/* на телефон оставяме по-малко снежинки, за да не товарят */
+@media (max-width: 700px) {
+  .snow i:nth-child(even) { display: none; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .snow { display: none; }
+}

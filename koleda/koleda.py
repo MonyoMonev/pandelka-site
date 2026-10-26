@@ -14,9 +14,10 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
 PARTS = {
-    "CSS": [("index.html", "koleda/css.html")],
+    "CSS": [("index.html", "koleda/css.html"), ("galeria.html", "koleda/css.html")],
     "NAV": [("index.html", "koleda/nav.html"), ("galeria.html", "koleda/nav.html")],
     "SECTION": [("index.html", "koleda/section.html")],
+    "SNOW": [("index.html", "koleda/snow.html"), ("galeria.html", "koleda/snow.html")],
 }
 SITEMAP_ENTRY = """  <url>
     <loc>https://golyamatapandelka.com/koledni-pandelki.html</loc>
