@@ -1,0 +1,131 @@
+/* ============================================================
+   Голямата Панделка — коледно оформление (сезонно)
+   Включва се и се изключва с koleda.py, не пипа основния стил
+   ============================================================ */
+
+.kol {
+  position: relative;
+  padding: clamp(60px, 9vh, 110px) clamp(20px, 5vw, 64px);
+  background:
+    radial-gradient(90% 70% at 50% 0%, rgba(200, 16, 46, 0.16), transparent 70%),
+    var(--ink);
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+  overflow: hidden;
+}
+
+.kol__inner {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(28px, 5vw, 70px);
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.kol__eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  text-transform: uppercase;
+  letter-spacing: 0.22em;
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--red);
+  margin-bottom: 16px;
+}
+
+.kol__eyebrow::before {
+  content: "";
+  width: 26px;
+  height: 1px;
+  background: var(--red);
+}
+
+.kol h2 {
+  font-size: clamp(1.9rem, 4.4vw, 3.1rem);
+  margin-bottom: 20px;
+}
+
+.kol p {
+  color: var(--paper-dim);
+  margin-bottom: 15px;
+  max-width: 52ch;
+}
+
+.kol__note {
+  font-size: 0.9rem;
+  color: var(--paper);
+  background: rgba(200, 16, 46, 0.14);
+  border-left: 2px solid var(--red);
+  padding: 11px 16px;
+  border-radius: 0 8px 8px 0;
+  margin: 22px 0 26px;
+  max-width: 46ch;
+}
+
+.kol__cta { display: flex; gap: 14px; flex-wrap: wrap; }
+
+.kol__media {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.kol__media figure {
+  margin: 0;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.55);
+}
+
+.kol__media figure:first-child { transform: translateY(-18px); }
+.kol__media figure:last-child { transform: translateY(18px); }
+
+.kol__media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  aspect-ratio: 3 / 5;
+}
+
+/* коледният линк в менюто */
+.nav__links a.kol__link,
+.mobmenu a.kol__link { color: var(--red); font-weight: 600; }
+
+@media (max-width: 900px) {
+  .kol__inner { grid-template-columns: 1fr; }
+  .kol__media figure:first-child,
+  .kol__media figure:last-child { transform: none; }
+}
+
+/* решетка със снимки на коледната страница */
+.kol__grid {
+  display: grid;
+  gap: 16px;
+  max-width: 1000px;
+  margin: 30px auto 0;
+}
+
+.kol__grid--2 { grid-template-columns: 1fr 1fr; }
+.kol__grid--3 { grid-template-columns: repeat(3, 1fr); max-width: 1150px; }
+
+.kol__grid figure {
+  margin: 0;
+  border-radius: 14px;
+  overflow: hidden;
+}
+
+.kol__grid img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  aspect-ratio: 3 / 4;
+}
+
+.kol__grid--3 img { aspect-ratio: 4 / 3; }
+
+@media (max-width: 700px) {
+  .kol__grid--2, .kol__grid--3 { grid-template-columns: 1fr 1fr; gap: 10px; }
+  .kol__grid--3 figure:last-child { grid-column: span 2; }
+}
