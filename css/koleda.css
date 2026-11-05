@@ -159,3 +159,10 @@
 @media (prefers-reduced-motion: reduce) {
   .snow { display: none; }
 }
+
+.kol__grid--4 { grid-template-columns: repeat(4, 1fr); max-width: 1150px; }
+.kol__grid--4 img { aspect-ratio: 2 / 3; }
+
+@media (max-width: 700px) {
+  .kol__grid--4 { grid-template-columns: 1fr 1fr; }
+}
